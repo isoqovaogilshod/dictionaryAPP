@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary✨✨APP✨✨Isoqova</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <style>
+    body.serif * {
+      font-family: "Loro", serif;
+    }
+
+    body.sans-serif * {
+      font-family: "Inter", sans-serif;
+    }
+
+    body.mono * {
+      font-family: monospace;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div class="display container">
+        <header>
+          <div class="navbar">
+            <div class="nav-left">
+              <img src="./icons/iconoir_book.svg" class="book" alt="" />
+            </div>
+            <div class="nav-right">
+              <!-- <select name="lang" id="langs">
+                <option value="sansSerif">Sans Serif</option>
+                <option value="serif">Serif</option>
+                <option value="mono">Mono</option>
+              </select> -->
+
+              <!-- ---- -->
+              <div class="font-selector">
+                <div class="selected-font">
+                  <div class="font-name">Serif</div>
+                  <i class="fa-solid fa-angle-down" style="color: #8a3ad9"></i>
+                </div>
+                <div class="font-options exit">
+                  <span class="sans-serif">Sans Serif</span>
+                  <span class="serif">Serif</span>
+                  <span class="monospace">Mono</span>
+                </div>
+              </div>
+              <!-- --- -->
+              <span class="line"></span>
+
+              <div class="moon-labelIcon">
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+                <img src="./icons/moon-light.png" id="lightMoon" alt="" />
+                <img
+                  src="./icons/moon-dark.png"
+                  id="darkMoon"
+                  class="none"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div class="searchPart">
+            <input type="text" placeholder="Search..." />
+            <img src="./icons/iconoir_search.png" alt="" />
+          </div>
+          <div class="result-part">
+            <div class="word">
+              <div class="wordPart">
+                <h1>keyboard</h1>
+                <span>/ˈkiːbɔːd/</span>
+              </div>
+              <img src="./icons/audio-light.png" alt="" />
+              <audio src=""></audio>
+            </div>
+            <div class="meaningPart">
+              <div class="part">
+                <h3>noun</h3>
+                <div></div>
+              </div>
+              <h2 class="meaning">Meaning</h2>
+              <ul>
+                <li>
+                  (etc.) A set of keys used to operate a typewriter, computer
+                  etc.
+                </li>
+                <li>
+                  A component of many instruments including the piano, organ,
+                  and harpsichord consisting of usually black and white keys
+                  that cause different tones to be produced when struck.
+                </li>
+                <li>
+                  A device with keys of a musical keyboard, used to control
+                  electronic sound-producing devices which may be built into or
+                  separate from the keyboard device.
+                </li>
+              </ul>
+            </div>
+
+            <div class="synonyms">
+              <p>Synonyms</p>
+              <h5>electronic keyboard</h5>
+            </div>
+
+            <div class="meaningPart">
+              <div class="part">
+                <h3>verb</h3>
+                <div></div>
+              </div>
+              <h2 class="meaning">Meaning</h2>
+              <ul>
+                <li>To type on a computer keyboard.</li>
+              </ul>
+              <p class="key">
+                “Keyboarding is the part of this job I hate the most.”
+              </p>
+            </div>
+            <div class="sourse">
+              <p>Source</p>
+              <div class="link">
+                <a href="#">https://en.wiktionary.org/wiki/keyboard</a>
+                <img src="./icons/tabler_external-link.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="not-found hide">
+            <img src="./icons/😕.svg" alt="" />
+            <h3>No Definitions Found</h3>
+            <p>
+              Sorry pal, we couldn't find definitions for the word you were
+              looking for. You can try the search again at later time or head to
+              the web instead.
+            </p>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
