@@ -5,6 +5,8 @@ let h1 = document.querySelector("h1");
 let trancription = document.getElementById("trancription");
 let input = document.querySelector(".searchPart input");
 let meanings = document.getElementById("meanings");
+let audioBtn = document.querySelector(".result-part img");
+let audio = document.querySelector(".result-part audio");
 
 let notFound = document.querySelector(".hide");
 slider.addEventListener("click", () => {
@@ -49,15 +51,27 @@ function getData(word) {
 }
 
 function showUi(data) {
-  // if (word.status == 404) {
-  //   notFound.style.display = "inline";
-  // }
   console.log(data);
   h1.textContent = data.word;
-  trancription.textContent = data.phonetic;
+
+  let pronounceText = data.phonetics.filter(
+    (el) => Boolean(el.text) != false
+  )[0]?.text;
+
+  trancription.textContent = pronounceText;
+
+  let audioSrc = data.phonetics.filter((el) => Boolean(el.audio) != false)[0]
+    ?.audio;
+  trancription.style.display = pronounceText ? "block" : "none";
+  audioBtn.style.display = audioSrc ? "block" : "none";
+
+  audio.setAttribute("src", audioSrc);
+  audioBtn.addEventListener("click", () => {
+    audio.play();
+  });
+  meanings.innerHTML = "";
   for (let i = 0; i < data.meanings.length; i++) {
     let mean = data.meanings[i];
-    console.log(mean);
     let k = "";
     for (let j = 0; j < mean.definitions.length; j++) {
       k += "<li>" + mean.definitions[j].definition + "</li>";
@@ -81,29 +95,12 @@ function showUi(data) {
   </div>
   </div>
   `;
-    meanings.innerHTML = meaning;
+    meanings.innerHTML += meaning;
   }
 }
-// <div class="meaningPart">
-// <div class="part">
-//   <h3></h3>
-//   <div></div>
-// </div>
-// <h2 class="meaning">Meaning</h2>
-// <ul>
-//   <li>To type on a computer keyboard.</li>
-// </ul>
-// <p class="key">
-//   “Keyboarding is the part of this job I hate the most.”
-// </p>
-// </div>
 
 input.addEventListener("keyup", (e) => {
   if (e.key == "Enter") {
     getData(input.value);
   }
 });
-
-/*
- 
-*/
