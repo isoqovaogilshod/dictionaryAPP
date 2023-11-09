@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+body .sans-serif {
+  font-family: "Inter", sans-serif;
+}
+body .serif {
+  font-family: "Lora", "serif";
+}
+body .mono {
+  font-family: "Inconsolata", "monospace";
+}
+
 .container {
   max-width: 90%;
   margin: 0 auto;
@@ -137,6 +147,7 @@ input:checked + .slider:before {
   outline: none;
   color: var(--2D2D2D, #2d2d2d);
   padding-right: 50px;
+  padding-left: 28px;
   font-size: 16px;
   font-weight: 700;
 }
@@ -408,15 +419,15 @@ input:checked + .slider:before {
 }
 
 .font-selector .font-options span.sans-serif {
-  font-family: Inter, sans-serif;
+  font-family: Inter, sans-serif !important;
 }
 
 .font-selector .font-options span.serif {
-  font-family: Lora, serif;
+  font-family: Lora, serif !important;
 }
 
 .font-selector .font-options span.monospace {
-  font-family: Inconsolata, monospace;
+  font-family: Inconsolata, monospace !important;
 }
 
 .darkTheme .font-selector .font-options {
@@ -447,6 +458,7 @@ input:checked + .slider:before {
   .searchPart input {
     font-size: 20px;
     padding: 22px;
+    padding-left: 40px;
     margin-top: 51px;
     margin-bottom: 51px;
     padding-right: 80px;
