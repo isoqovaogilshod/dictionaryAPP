@@ -25,13 +25,15 @@ Selectfont.addEventListener("click", () => {
 
 for (let i = 0; i < fontOptions.length; i++) {
   fontOptions[i].addEventListener("click", (e) => {
-    document.body.classList.remove("monospace");
-    document.body.classList.remove("sans-serif");
-    document.body.classList.remove("serif");
+    document.body.classList.remove("Mono");
+    document.body.classList.remove("Sans-Serif");
+    document.body.classList.remove("Serif");
     console.log(e.target.classList);
     document.body.classList.add(e.target.className);
     fontOption.classList.add("exit");
+    fontName.innerHTML =e.target.className;
   });
+  console.log(fontOptions[i]);
 }
 //////////////
 function getData(word) {

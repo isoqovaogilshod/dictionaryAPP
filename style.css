@@ -5,14 +5,16 @@
   box-sizing: border-box;
 }
 
-body .sans-serif {
+body.Serif * {
+  font-family: "Loro", serif;
+}
+
+body.Sans-Serif * {
   font-family: "Inter", sans-serif;
 }
-body .serif {
-  font-family: "Lora", "serif";
-}
-body .mono {
-  font-family: "Inconsolata", "monospace";
+
+body.Mono * {
+  font-family: monospace;
 }
 
 .container {
