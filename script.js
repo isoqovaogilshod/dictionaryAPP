@@ -7,8 +7,10 @@ let input = document.querySelector(".searchPart input");
 let meanings = document.getElementById("meanings");
 let audioBtn = document.querySelector(".result-part img");
 let audio = document.querySelector(".result-part audio");
+let source = document.querySelector(".link a");
+let notFound = document.querySelector(".not-found");
+let resultPart = document.querySelector(".result-part");
 
-let notFound = document.querySelector(".hide");
 slider.addEventListener("click", () => {
   document.body.classList.toggle("darkTheme");
   darkMoon.classList.toggle("none");
@@ -20,9 +22,6 @@ let fontOption = document.querySelector(".font-options");
 let fontOptions = document.querySelectorAll(".font-options span");
 let fontName = document.querySelector(".font-name");
 
-let serif = document.getElementById("serif");
-let sansSerif = document.getElementById("sans-serif");
-let mono = document.getElementById("mono");
 Selectfont.addEventListener("click", () => {
   fontOption.classList.toggle("exit");
 });
@@ -32,12 +31,10 @@ for (let i = 0; i < fontOptions.length; i++) {
     document.body.classList.remove("Mono");
     document.body.classList.remove("Sans-Serif");
     document.body.classList.remove("Serif");
-    // console.log(e.target.classList);
     document.body.classList.add(e.target.className);
     fontOption.classList.add("exit");
     fontName.innerHTML = e.target.className;
   });
-  // console.log(fontOptions[i]);
 }
 //////////////
 function getData(word) {
@@ -46,11 +43,21 @@ function getData(word) {
       return resp.json();
     })
     .then((data) => {
+      console.log(data);
+      if (data.title == "No Definitions Found") {
+        resultPart.classList.add("hide");
+        notFound.classList.remove("hide");
+        return;
+      }
+      resultPart.classList.remove("hide");
+      notFound.classList.add("hide");
       showUi(data[0]);
     });
 }
 
 function showUi(data) {
+  source.setAttribute("href", data.sourceUrls[0]);
+  source.textContent = data.sourceUrls[0];
   console.log(data);
   h1.textContent = data.word;
 
@@ -73,6 +80,8 @@ function showUi(data) {
   for (let i = 0; i < data.meanings.length; i++) {
     let mean = data.meanings[i];
     let k = "";
+    let synonyms = data.meanings[i].synonyms.join(",");
+    let antonyms = data.meanings[i].antonyms.join(",");
     for (let j = 0; j < mean.definitions.length; j++) {
       k += "<li>" + mean.definitions[j].definition + "</li>";
     }
@@ -88,16 +97,31 @@ function showUi(data) {
      ${k}
    </ul>
   </div>
+   ${
+     synonyms
+       ? `<div class="synonyms">
+     <p>Synonyms</p>
+    <h5>${synonyms}</h5>
+    </div> `
+       : ""
+   }  
+  ${
+    antonyms
+      ? `
+    <div class="synonyms">
+    <p>Antonyms</p>
+    <h5>${antonyms}</h5>
+    </div>
+    
+    `
+      : ""
+  }
   
-  <div class="synonyms">
-   <p>Synonyms</p>
-   <h5>${data.meanings[i].synonyms}</h5>
-  </div>
-  </div>
   `;
     meanings.innerHTML += meaning;
   }
 }
+getData("keyboard");
 
 input.addEventListener("keyup", (e) => {
   if (e.key == "Enter") {
