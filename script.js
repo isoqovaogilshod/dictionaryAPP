@@ -5,6 +5,8 @@ let h1 = document.querySelector("h1");
 let trancription = document.getElementById("trancription");
 let input = document.querySelector(".searchPart input");
 let meanings = document.getElementById("meanings");
+
+let notFound = document.querySelector(".hide");
 slider.addEventListener("click", () => {
   document.body.classList.toggle("darkTheme");
   darkMoon.classList.toggle("none");
@@ -28,12 +30,12 @@ for (let i = 0; i < fontOptions.length; i++) {
     document.body.classList.remove("Mono");
     document.body.classList.remove("Sans-Serif");
     document.body.classList.remove("Serif");
-    console.log(e.target.classList);
+    // console.log(e.target.classList);
     document.body.classList.add(e.target.className);
     fontOption.classList.add("exit");
-    fontName.innerHTML =e.target.className;
+    fontName.innerHTML = e.target.className;
   });
-  console.log(fontOptions[i]);
+  // console.log(fontOptions[i]);
 }
 //////////////
 function getData(word) {
@@ -47,6 +49,9 @@ function getData(word) {
 }
 
 function showUi(data) {
+  // if (word.status == 404) {
+  //   notFound.style.display = "inline";
+  // }
   console.log(data);
   h1.textContent = data.word;
   trancription.textContent = data.phonetic;
@@ -72,7 +77,7 @@ function showUi(data) {
   
   <div class="synonyms">
    <p>Synonyms</p>
-   <h5>electronic keyboard</h5>
+   <h5>${data.meanings[i].synonyms}</h5>
   </div>
   </div>
   `;
