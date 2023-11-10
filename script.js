@@ -22,9 +22,26 @@ let fontOption = document.querySelector(".font-options");
 let fontOptions = document.querySelectorAll(".font-options span");
 let fontName = document.querySelector(".font-name");
 
-Selectfont.addEventListener("click", () => {
-  fontOption.classList.toggle("exit");
-});
+// Selectfont.addEventListener("click", () => {
+//   fontOption.classList.toggle("exit");
+// });
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("exit");
+}
+
+window.onclick = function (event) {
+  if (!event.target.matches(".selected-font")) {
+    var dropdowns = document.getElementsByClassName("font-options");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("exit")) {
+        openDropdown.classList.remove("exit");
+      }
+    }
+  }
+};
 
 for (let i = 0; i < fontOptions.length; i++) {
   fontOptions[i].addEventListener("click", (e) => {
@@ -36,6 +53,8 @@ for (let i = 0; i < fontOptions.length; i++) {
     fontName.innerHTML = e.target.className;
   });
 }
+
+
 //////////////
 function getData(word) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
@@ -80,8 +99,8 @@ function showUi(data) {
   for (let i = 0; i < data.meanings.length; i++) {
     let mean = data.meanings[i];
     let k = "";
-    let synonyms = data.meanings[i].synonyms.join(",");
-    let antonyms = data.meanings[i].antonyms.join(",");
+    let synonyms = data.meanings[i].synonyms.join(", ");
+    let antonyms = data.meanings[i].antonyms.join(", ");
     for (let j = 0; j < mean.definitions.length; j++) {
       k += "<li>" + mean.definitions[j].definition + "</li>";
     }

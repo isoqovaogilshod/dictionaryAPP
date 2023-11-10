@@ -338,7 +338,7 @@ input:checked + .slider:before {
 }
 
 .not-found h3 {
-  color: var(--2D2D2D, #2d2d2d);
+  color:  #2d2d2d;
   font-size: 20px;
   font-weight: 700;
   margin-top: 44px;
@@ -346,7 +346,7 @@ input:checked + .slider:before {
 }
 
 .not-found p {
-  color: var(--757575, #757575);
+  color: #757575;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 18px;
@@ -361,7 +361,7 @@ input:checked + .slider:before {
 }
 
 .darkTheme .not-found p {
-  color: var(--757575, #757575);
+  color:  #757575;
 }
 
 .hide {

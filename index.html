@@ -12,6 +12,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./icons/3381273.webp"
+    />
   </head>
   <body class="">
     <div class="wrapper">
@@ -22,19 +28,13 @@
               <img src="./icons/iconoir_book.svg" class="book" alt="" />
             </div>
             <div class="nav-right">
-              <!-- <select name="lang" id="langs">
-                <option id="sans-serif" value="sansSerif">Sans Serif</option>
-                <option id="serif" value="serif">Serif</option>
-                <option id="mono" value="mono">Mono</option>
-              </select> -->
-
               <!-- ---- -->
               <div class="font-selector">
-                <div class="selected-font">
+                <div class="selected-font" onclick="myFunction()">
                   <div class="font-name">Serif</div>
                   <img src="./icons/Path 3.svg" alt="" />
                 </div>
-                <div class="font-options exit">
+                <div id="myDropdown" class="font-options exit">
                   <span class="Sans-Serif">Sans Serif</span>
                   <span class="Serif">Serif</span>
                   <span class="Mono">Mono</span>
