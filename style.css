@@ -338,7 +338,7 @@ input:checked + .slider:before {
 }
 
 .not-found h3 {
-  color:  #2d2d2d;
+  color: #2d2d2d;
   font-size: 20px;
   font-weight: 700;
   margin-top: 44px;
@@ -354,6 +354,10 @@ input:checked + .slider:before {
   font-weight: 400;
   line-height: 24px;
   margin-top: 24px;
+  max-width: 600px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 24px;
 }
 
 .darkTheme .not-found h3 {
@@ -361,7 +365,7 @@ input:checked + .slider:before {
 }
 
 .darkTheme .not-found p {
-  color:  #757575;
+  color: #757575;
 }
 
 .hide {
@@ -372,10 +376,6 @@ input:checked + .slider:before {
 .font-selector {
   cursor: pointer;
   position: relative;
-  /* -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none; 
-  -webkit-tap-highlight-color: transparent; */
 }
 
 .font-selector .selected-font {
@@ -512,5 +512,9 @@ input:checked + .slider:before {
   .container {
     max-width: 60%;
     margin: 0 auto;
+  }
+
+  .not-found p {
+    max-width: 740px;
   }
 }

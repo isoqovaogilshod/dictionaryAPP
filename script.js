@@ -22,26 +22,27 @@ let fontOption = document.querySelector(".font-options");
 let fontOptions = document.querySelectorAll(".font-options span");
 let fontName = document.querySelector(".font-name");
 
-// Selectfont.addEventListener("click", () => {
-//   fontOption.classList.toggle("exit");
-// });
+Selectfont.addEventListener("click", () => {
+  fontOption.classList.toggle("exit");
+});
 
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("exit");
-}
+// function myFunction() {
+//   document.getElementById("myDropdown").classList.toggle("exit");
+// }
 
-window.onclick = function (event) {
-  if (!event.target.matches(".selected-font")) {
-    var dropdowns = document.getElementsByClassName("font-options");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("exit")) {
-        openDropdown.classList.remove("exit");
-      }
-    }
-  }
-};
+// window.onclick = function (event) {
+//   if (!event.target.matches(".selected-font")) {
+//     var dropdowns = document.getElementsByClassName("font-options");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("exit")) {
+//         openDropdown.classList.remove("exit");
+//       }
+//     }
+//   }
+// };
+
 
 for (let i = 0; i < fontOptions.length; i++) {
   fontOptions[i].addEventListener("click", (e) => {
