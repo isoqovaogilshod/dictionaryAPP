@@ -387,14 +387,11 @@ input:checked + .slider:before {
   gap: 15px;
 }
 
-.exit {
-  display: none;
-}
 .font-selector .selected-font .icon-dropdown {
   margin-left: 15px;
 }
 
-.font-selector .font-options {
+.font-options {
   position: absolute;
   background-color: #ffffff;
   z-index: 1;
@@ -405,6 +402,10 @@ input:checked + .slider:before {
   box-shadow: 0 5px 30px;
   border-radius: 16px;
   padding: 12px 0;
+  display: none;
+}
+.exit {
+  display: block;
 }
 
 .font-selector .font-options span {

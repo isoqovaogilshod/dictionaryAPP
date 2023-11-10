@@ -22,27 +22,25 @@ let fontOption = document.querySelector(".font-options");
 let fontOptions = document.querySelectorAll(".font-options span");
 let fontName = document.querySelector(".font-name");
 
-Selectfont.addEventListener("click", () => {
+Selectfont.addEventListener("click", (e) => {
+  e.stopPropagation();
   fontOption.classList.toggle("exit");
 });
 
-// function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("exit");
-// }
 
-// window.onclick = function (event) {
-//   if (!event.target.matches(".selected-font")) {
-//     var dropdowns = document.getElementsByClassName("font-options");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains("exit")) {
-//         openDropdown.classList.remove("exit");
-//       }
-//     }
-//   }
-// };
+let myDropdown = document.querySelector("#myDropdown");
 
+window.addEventListener("click", function (event) {
+  if (!event.target.matches(".selected-font")) {
+    var dropdowns = document.getElementsByClassName("font-options");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      if (myDropdown.classList.contains("exit")) {
+        myDropdown.classList.remove("exit");
+      }
+    }
+  }
+});
 
 for (let i = 0; i < fontOptions.length; i++) {
   fontOptions[i].addEventListener("click", (e) => {
@@ -54,7 +52,6 @@ for (let i = 0; i < fontOptions.length; i++) {
     fontName.innerHTML = e.target.className;
   });
 }
-
 
 //////////////
 function getData(word) {
@@ -96,6 +93,7 @@ function showUi(data) {
   audioBtn.addEventListener("click", () => {
     audio.play();
   });
+
   meanings.innerHTML = "";
   for (let i = 0; i < data.meanings.length; i++) {
     let mean = data.meanings[i];
@@ -119,7 +117,8 @@ function showUi(data) {
   </div>
    ${
      synonyms
-       ? `<div class="synonyms">
+       ? `
+     <div class="synonyms">
      <p>Synonyms</p>
     <h5>${synonyms}</h5>
     </div> `
@@ -132,7 +131,6 @@ function showUi(data) {
     <p>Antonyms</p>
     <h5>${antonyms}</h5>
     </div>
-    
     `
       : ""
   }
@@ -148,3 +146,16 @@ input.addEventListener("keyup", (e) => {
     getData(input.value);
   }
 });
+
+// let span = document.querySelectorAll("#myDropdown span");
+// let font1 = document.getElementById("myDropdown");
+
+// for (let i = 0; i < span.length; i++) {
+//   span[i].onclick = function () {
+//     for (let j = 0; j < span.length; j++) {
+//       span[j].style.display = "none";
+//     }
+//     font1.style.width = "0";
+//     font1.style.padding = "0px";
+//   };
+// }
